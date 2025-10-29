@@ -1,0 +1,565 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Nagel Font - Add your Nagel font files here */
+@font-face {
+    font-family: 'Nagel';
+    src: url('fonts/Nagel.woff2') format('woff2'),
+         url('fonts/Nagel.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+}
+
+/* Fade in animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header/Navbar */
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto;
+    padding: 3rem 4rem 2rem 4rem;
+    background-color: #ffffff;
+    gap: 1rem;
+}
+
+.site-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #0000ff;
+    margin-bottom: 1rem;
+}
+
+.directed-by {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.2em;
+}
+
+.ptv {
+    font-family: 'Bangla MN', serif;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 0.3em;
+}
+
+.ptv .p-letter {
+    font-style: normal;
+}
+
+.nav-left {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.nav-right {
+    grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    color: #0000ff;
+    text-decoration: none;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.nav-link.active {
+    text-decoration: underline;
+}
+
+.social-link {
+    color: #0000ff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: opacity 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link:hover {
+    opacity: 0.7;
+}
+
+.social-link i {
+    font-size: 1.4rem;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: transparent;
+    color: #0000ff;
+    border: none;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    opacity: 0.7;
+}
+
+.dropdown-btn.active {
+    text-decoration: underline;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.08);
+    z-index: 1;
+    left: 0;
+    padding: 1rem;
+}
+
+.dropdown-content a {
+    color: #0000ff;
+    padding: 8px 0;
+    text-decoration: none;
+    display: block;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    opacity: 0.7;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Film Grid */
+.film-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 4rem;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.film-item {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.film-item.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.film-image-wrapper {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #0000ff;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    transition: transform 0.5s ease;
+}
+
+.film-image-wrapper:hover .placeholder-image {
+    transform: scale(1.05);
+}
+
+.film-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.film-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.film-title {
+    margin-top: 1rem;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: #0000ff;
+    text-transform: uppercase;
+}
+
+/* Contact Page */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    align-items: center;
+}
+
+.contact-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.placeholder-profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000ff;
+    color: #ffffff;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+}
+
+.contact-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-info h2 {
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    color: #000000;
+}
+
+.contact-email {
+    margin-bottom: 2rem;
+}
+
+.contact-email a {
+    color: #0000ff;
+    text-decoration: none;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    transition: opacity 0.3s ease;
+}
+
+.contact-email a:hover {
+    opacity: 0.7;
+}
+
+.contact-bio {
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.08em;
+    color: #333333;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer p {
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: #000000;
+}
+
+.footer a {
+    color: #0000ff;
+    text-decoration: none;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+    opacity: 0.7;
+}
+
+/* Film Detail Page */
+.film-detail {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 4rem 4rem 4rem;
+}
+
+.film-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.film-detail-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: #0000ff;
+    margin-bottom: 0.5rem;
+}
+
+.film-producer {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: #000000;
+}
+
+.video-container {
+    margin-bottom: 4rem;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.placeholder-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    color: #999;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.photo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.photo-item {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+.placeholder-photo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    color: #999;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .film-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .film-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 3rem 2rem;
+    }
+    
+    .contact-container {
+        gap: 3rem;
+        padding: 3rem 2rem;
+    }
+
+    .film-detail {
+        padding: 2rem 2rem 3rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .site-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-left {
+        justify-content: center;
+        gap: 1.2rem;
+        font-size: 0.7rem;
+    }
+    
+    .nav-right {
+        justify-content: center;
+        gap: 1.2rem;
+    }
+    
+    .social-link {
+        font-size: 1.2rem;
+    }
+    
+    .social-link i {
+        font-size: 1.2rem;
+    }
+    
+    .film-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .dropdown-content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: auto;
+        min-width: 100%;
+    }
+
+    .film-detail {
+        padding: 1.5rem 1.5rem 2rem 1.5rem;
+    }
+
+    .photo-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .video-container {
+        margin-bottom: 2rem;
+    }
+}
