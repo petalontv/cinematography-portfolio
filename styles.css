@@ -195,9 +195,10 @@ body {
 .film-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    padding: 4rem;
-    max-width: 1800px;
+    column-gap: 3rem;
+    row-gap: 6rem;
+    padding: 4rem 4rem 6rem 4rem;
+    max-width: 2000px;
     margin: 0 auto;
 }
 
@@ -218,6 +219,7 @@ body {
     aspect-ratio: 16 / 9;
     background-color: #f5f5f5;
     border: 1px solid #e0e0e0;
+    min-height: 350px;
 }
 
 .placeholder-image {
@@ -251,9 +253,9 @@ body {
 }
 
 .film-title {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-family: 'Nagel', 'Oswald', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: 0.15em;
     color: #0000ff;
@@ -478,13 +480,15 @@ body {
 @media (max-width: 1400px) {
     .film-grid {
         grid-template-columns: repeat(2, 1fr);
+        row-gap: 5rem;
     }
 }
 
 @media (max-width: 1024px) {
     .film-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        column-gap: 2rem;
+        row-gap: 4rem;
         padding: 3rem 2rem;
     }
     
@@ -532,8 +536,13 @@ body {
     
     .film-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        column-gap: 0;
+        row-gap: 4rem;
         padding: 2rem 1.5rem;
+    }
+    
+    .film-image-wrapper {
+        min-height: 280px;
     }
     
     .contact-container {
