@@ -36,6 +36,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
       <body
         className={`${oswald.variable} ${cinzel.variable} ${bebasNeue.variable} font-oswald antialiased bg-white text-black fade-in`}
