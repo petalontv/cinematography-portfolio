@@ -2,7 +2,7 @@ import { FilmItem } from "@/components/FilmItem";
 
 export default function Home() {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24 px-8 py-16 max-w-[1800px] mx-auto w-full">
+    <main className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 px-8 py-16 max-w-[1800px] mx-auto w-full">
       <FilmItem
         href="/autumn"
         imageSrc="/photos/autumn film thubnail.png"

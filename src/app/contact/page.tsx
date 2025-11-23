@@ -2,13 +2,11 @@ export default function ContactPage() {
     return (
         <main className="grid grid-cols-1 lg:grid-cols-2 gap-16 p-16 max-w-[1400px] mx-auto min-h-[calc(100vh-200px)] items-center">
             <div className="w-full aspect-[3/4] overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center bg-[#0000ff] text-white font-oswald text-2xl font-light tracking-[0.2em]">
-                    PROFILE PHOTO
-                </div>
+                <div className="w-full h-full bg-[#0000ff]"></div>
             </div>
             <div className="text-left">
-                <h2 className="font-['Satoshi'] text-4xl font-bold tracking-[0.15em] mb-6 text-black">
-                    <span className="font-normal">P</span><span className="italic">TV</span>
+                <h2 className="font-['Bangla_MN'] text-4xl font-bold italic tracking-[0.15em] mb-6 text-black">
+                    <span className="not-italic">P</span>TV
                 </h2>
                 <p className="mb-8">
                     <a href="mailto:contact@petalontv.com" className="text-[#0000ff] no-underline font-oswald text-base font-light tracking-[0.12em] hover:opacity-70 transition-opacity">

@@ -7,7 +7,7 @@ export function Footer() {
                 CONTACT:{" "}
                 <a
                     href="mailto:contact@petalontv.com"
-                    className="text-[#0000ff] no-underline font-semibold hover:opacity-70 transition-opacity"
+                    className="text-[#0000ff] no-underline font-normal hover:opacity-70 transition-opacity"
                 >
                     CONTACT@PETALONTV.COM
                 </a>

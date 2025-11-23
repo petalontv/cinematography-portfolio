@@ -22,7 +22,7 @@ export function Header() {
                 <span className="font-oswald font-extralight tracking-[0.2em] block md:inline mr-2 text-black md:text-[#0000ff]">
                     Directed by
                 </span>
-                <span className="font-serif font-bold italic tracking-[0.3em]">
+                <span className="font-['Bangla_MN'] font-bold italic tracking-[0.3em]">
                     <span className="not-italic">P</span>TV
                 </span>
             </h1>
