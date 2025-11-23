@@ -404,32 +404,57 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 50%;
     overflow: hidden;
     z-index: 2;
 }
 
-.before-image {
-    width: 200%;
-    height: 100%;
-    object-fit: cover;
-    transform: translateX(-50%);
-}
-
-.slider-divider {
+.before-container .before-image {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background-color: #0000ff;
-    z-index: 3;
-    cursor: col-resize;
-    transform: translateX(-50%);
+    left: 0;
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
 }
 
-.slider-divider::before {
+.before-image {
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
+    transform: translateY(-50%);
+}
+
+.before-after-slider.vertical .slider-divider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #0000ff;
+    z-index: 3;
+    cursor: row-resize;
+    transform: translateY(-50%);
+}
+
+.before-after-slider.vertical .before-container {
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+}
+
+.before-after-slider.vertical .before-container .before-image {
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.before-after-slider.vertical .slider-divider::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -443,8 +468,8 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.slider-divider::after {
-    content: '↔';
+.before-after-slider.vertical .slider-divider::after {
+    content: '↕';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -461,7 +486,7 @@ body {
     width: 100%;
     height: 100%;
     opacity: 0;
-    cursor: col-resize;
+    cursor: row-resize;
     z-index: 4;
     margin: 0;
     -webkit-appearance: none;
@@ -473,13 +498,13 @@ body {
     appearance: none;
     width: 100%;
     height: 100%;
-    cursor: col-resize;
+    cursor: row-resize;
 }
 
 .slider-control::-moz-range-thumb {
     width: 100%;
     height: 100%;
-    cursor: col-resize;
+    cursor: row-resize;
     border: none;
     background: transparent;
 }

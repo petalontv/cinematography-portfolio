@@ -1,4 +1,4 @@
-// Before/After Slider Functionality
+// Vertical Before/After Slider Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const sliders = document.querySelectorAll('.before-after-wrapper');
     
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set initial position
         function updateSlider(value) {
             const percentage = value + '%';
-            beforeContainer.style.width = percentage;
-            divider.style.left = percentage;
+            beforeContainer.style.height = percentage;
+            divider.style.top = percentage;
             sliderControl.value = value;
         }
         
@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Handle mouse click on wrapper
         wrapper.addEventListener('click', function(e) {
-            if (e.target === sliderControl || e.target === divider) return;
+            if (e.target === sliderControl || e.target === divider || e.target.closest('.slider-divider')) return;
             
             const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const percentage = (x / rect.width) * 100;
+            const y = e.clientY - rect.top;
+            const percentage = (y / rect.height) * 100;
             const clampedValue = Math.max(0, Math.min(100, percentage));
             updateSlider(clampedValue);
         });
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isDragging) return;
             
             const rect = wrapper.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const percentage = (x / rect.width) * 100;
+            const y = e.clientY - rect.top;
+            const percentage = (y / rect.height) * 100;
             const clampedValue = Math.max(0, Math.min(100, percentage));
             updateSlider(clampedValue);
         });
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const rect = this.getBoundingClientRect();
             const touch = e.touches[0];
-            const x = touch.clientX - rect.left;
-            const percentage = (x / rect.width) * 100;
+            const y = touch.clientY - rect.top;
+            const percentage = (y / rect.height) * 100;
             const clampedValue = Math.max(0, Math.min(100, percentage));
             updateSlider(clampedValue);
             e.preventDefault();

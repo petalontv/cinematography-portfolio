@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLOR GRADING</title>
+    <title>GRADING</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +29,7 @@
                     <a href="../cyberpunk">CYBERPUNK</a>
                 </div>
             </div>
-            <a href="../color-grading" class="nav-link active">COLOR GRADING</a>
+            <a href="../grading" class="nav-link active">GRADING</a>
             <a href="../contact" class="nav-link">CONTACT</a>
         </nav>
         <nav class="nav-right">
@@ -44,25 +45,25 @@
         </nav>
     </header>
 
-    <!-- Color Grading Content -->
+    <!-- Grading Content -->
     <main class="color-grading-container">
         <div class="color-grading-header">
-            <h2 class="color-grading-title">COLOR GRADING</h2>
+            <h2 class="color-grading-title">GRADING</h2>
             <p class="color-grading-subtitle">Before & After Comparison</p>
         </div>
 
-        <!-- Before/After Sliders -->
+        <!-- Vertical Before/After Sliders -->
         <div class="before-after-gallery">
             <!-- Example 1 - Replace with your images -->
             <div class="before-after-item">
-                <div class="before-after-slider">
+                <div class="before-after-slider vertical">
                     <div class="before-after-wrapper">
-                        <img src="../photos/color-grading/example1-after.jpg" alt="Color Graded" class="after-image">
+                        <img src="../photos/Grading/example1-graded.jpg" alt="Color Graded" class="after-image">
                         <div class="before-container">
-                            <img src="../photos/color-grading/example1-before.jpg" alt="Log Footage" class="before-image">
+                            <img src="../photos/Grading/example1-log.jpg" alt="Log Footage" class="before-image">
                         </div>
                         <div class="slider-divider"></div>
-                        <input type="range" class="slider-control" min="0" max="100" value="50">
+                        <input type="range" class="slider-control" min="0" max="100" value="50" orient="vertical">
                     </div>
                     <div class="slider-labels">
                         <span class="label-log">LOG</span>
@@ -71,17 +72,16 @@
                 </div>
             </div>
 
-            <!-- Add more before/after items here -->
-            <!-- Example structure:
+            <!-- Example 2 - Add more as needed -->
             <div class="before-after-item">
-                <div class="before-after-slider">
+                <div class="before-after-slider vertical">
                     <div class="before-after-wrapper">
-                        <img src="../photos/color-grading/example2-after.jpg" alt="Color Graded" class="after-image">
+                        <img src="../photos/Grading/example2-graded.jpg" alt="Color Graded" class="after-image">
                         <div class="before-container">
-                            <img src="../photos/color-grading/example2-before.jpg" alt="Log Footage" class="before-image">
+                            <img src="../photos/Grading/example2-log.jpg" alt="Log Footage" class="before-image">
                         </div>
                         <div class="slider-divider"></div>
-                        <input type="range" class="slider-control" min="0" max="100" value="50">
+                        <input type="range" class="slider-control" min="0" max="100" value="50" orient="vertical">
                     </div>
                     <div class="slider-labels">
                         <span class="label-log">LOG</span>
@@ -89,7 +89,8 @@
                     </div>
                 </div>
             </div>
-            -->
+
+            <!-- Add more before/after items here using the same structure -->
         </div>
     </main>
 
@@ -99,7 +100,7 @@
     </footer>
 
     <script src="../script.js"></script>
-    <script src="color-grading.js"></script>
+    <script src="grading.js"></script>
 </body>
 </html>
 
