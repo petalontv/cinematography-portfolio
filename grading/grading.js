@@ -1,4 +1,4 @@
-// Vertical Before/After Slider Functionality
+// Horizontal Before/After Slider Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const sliders = document.querySelectorAll('.before-after-wrapper');
     
@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!sliderControl || !beforeContainer || !divider) return;
         
-        // Set initial position
+        // Set initial position - start with LOG fully visible (0%)
         function updateSlider(value) {
             const percentage = value + '%';
-            beforeContainer.style.height = percentage;
-            divider.style.top = percentage;
+            beforeContainer.style.width = percentage;
+            divider.style.left = percentage;
             sliderControl.value = value;
         }
         
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === sliderControl || e.target === divider || e.target.closest('.slider-divider')) return;
             
             const rect = this.getBoundingClientRect();
-            const y = e.clientY - rect.top;
-            const percentage = (y / rect.height) * 100;
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
             const clampedValue = Math.max(0, Math.min(100, percentage));
             updateSlider(clampedValue);
         });
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isDragging) return;
             
             const rect = wrapper.getBoundingClientRect();
-            const y = e.clientY - rect.top;
-            const percentage = (y / rect.height) * 100;
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
             const clampedValue = Math.max(0, Math.min(100, percentage));
             updateSlider(clampedValue);
         });
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isDragging = false;
         });
         
-        // Touch support for mobile
+        // Touch support for mobile swipe
         divider.addEventListener('touchstart', function(e) {
             isDragging = true;
             e.preventDefault();
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const rect = this.getBoundingClientRect();
             const touch = e.touches[0];
-            const y = touch.clientY - rect.top;
-            const percentage = (y / rect.height) * 100;
+            const x = touch.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
             const clampedValue = Math.max(0, Math.min(100, percentage));
             updateSlider(clampedValue);
             e.preventDefault();
@@ -77,8 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isDragging = false;
         });
         
-        // Initialize at 50%
-        updateSlider(50);
+        // Initialize at 0% (LOG fully visible)
+        updateSlider(0);
     });
 });
-
