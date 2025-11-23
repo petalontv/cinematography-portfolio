@@ -330,6 +330,179 @@ body {
     color: #333333;
 }
 
+/* Color Grading Page */
+.color-grading-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 200px);
+}
+
+.color-grading-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.color-grading-title {
+    font-family: 'Satoshi', 'Gordita', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #0000ff;
+    margin-bottom: 0.5rem;
+}
+
+.color-grading-subtitle {
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: #333333;
+}
+
+.before-after-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.before-after-item {
+    width: 100%;
+}
+
+.before-after-slider {
+    width: 100%;
+}
+
+.before-after-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    cursor: col-resize;
+}
+
+.before-after-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.after-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.before-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.before-image {
+    width: 200%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(-50%);
+}
+
+.slider-divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #0000ff;
+    z-index: 3;
+    cursor: col-resize;
+    transform: translateX(-50%);
+}
+
+.slider-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #0000ff;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider-divider::after {
+    content: '↔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.slider-control {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: col-resize;
+    z-index: 4;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    cursor: col-resize;
+}
+
+.slider-control::-moz-range-thumb {
+    width: 100%;
+    height: 100%;
+    cursor: col-resize;
+    border: none;
+    background: transparent;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-family: 'Nagel', 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: #666666;
+}
+
+.label-log {
+    color: #666666;
+}
+
+.label-graded {
+    color: #0000ff;
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -504,6 +677,44 @@ body {
     font-weight: 300;
     letter-spacing: 0.15em;
     font-size: 1.2rem;
+}
+
+/* Color Grading Responsive */
+@media (max-width: 1024px) {
+    .color-grading-container {
+        padding: 3rem 2rem;
+    }
+    
+    .before-after-gallery {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .color-grading-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .color-grading-title {
+        font-size: 2rem;
+    }
+    
+    .color-grading-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .before-after-gallery {
+        gap: 2rem;
+    }
+    
+    .slider-divider::before {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .slider-divider::after {
+        font-size: 12px;
+    }
 }
 
 /* Responsive Design */
