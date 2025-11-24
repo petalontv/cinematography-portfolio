@@ -4,11 +4,7 @@ export default function FogPage() {
     return (
         <FilmPageLayout
             title="FOG"
-            producer={
-                <span>
-                    PRODUCED BY <span className="font-bold">PETALON</span>
-                </span>
-            }
+             producer={<>Written, filmed and edited by P<i>TV</i></>}
             videoId="1139782018"
             photos={[
                 "/photos/fog/Screenshot 2025-11-24 at 12.26.28.png",
