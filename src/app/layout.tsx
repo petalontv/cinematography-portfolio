@@ -23,7 +23,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "PTV - Cinematography Portfolio",
+  title: "PTV",
   description: "Directed by PTV",
 };
 
@@ -37,6 +37,7 @@ export default function RootLayout({
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body
         className={`${oswald.variable} ${cinzel.variable} ${bebasNeue.variable} font-oswald antialiased bg-white text-black fade-in`}

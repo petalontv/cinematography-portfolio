@@ -15,7 +15,12 @@ export default function Home() {
         title="CYBERPUNK"
         delay={0.05}
       />
-      <FilmItem title="COMING SOON..." delay={0.1} />
+      <FilmItem
+        href="/fog"
+        imageSrc="/photos/fog/Screenshot 2025-11-24 at 12.26.28.png"
+        title="FOG"
+        delay={0.1}
+      />
       <FilmItem title="COMING SOON..." delay={0.15} />
       <FilmItem title="COMING SOON..." delay={0.2} />
       <FilmItem title="COMING SOON..." delay={0.25} />

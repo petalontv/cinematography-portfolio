@@ -64,6 +64,14 @@ export function Header() {
                                 CYBERPUNK
                             </Link>
                         </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                            <Link
+                                href="/fog"
+                                className="text-[#0000ff] block font-oswald text-[0.7rem] font-light tracking-[0.12em] hover:opacity-70 transition-opacity cursor-pointer"
+                            >
+                                FOG
+                            </Link>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
 
