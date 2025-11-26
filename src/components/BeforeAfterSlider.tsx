@@ -71,24 +71,24 @@ export function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAfterSlider
                 <img
                     src={afterImage}
                     alt="Graded"
-                    className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
+                    className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none scale-[1.02]"
                 />
 
                 {/* Before Image (Foreground - Log - Left side - Clipped) */}
                 <img
                     src={beforeImage}
                     alt="Log"
-                    className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
+                    className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none scale-[1.02]"
                     style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
                 />
 
                 {/* Divider */}
                 <div
-                    className="absolute top-0 h-full w-1 bg-[#0000ff] z-10 pointer-events-none"
+                    className="absolute top-0 h-full w-[2px] bg-white z-10 pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.3)]"
                     style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
                 >
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-[#0000ff] border-[3px] border-white rounded-full shadow-md flex items-center justify-center text-white text-sm font-bold">
-                        ↔
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+                        <div className="w-1 h-4 bg-[#cccccc] rounded-full" />
                     </div>
                 </div>
             </div>
