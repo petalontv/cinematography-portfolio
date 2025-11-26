@@ -12,11 +12,11 @@ export function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAfterSlider
     const containerRef = useRef<HTMLDivElement>(null);
     const isDragging = useRef(false);
 
-    const updatePosition = useCallback((clientY: number) => {
+    const updatePosition = useCallback((clientX: number) => {
         if (!containerRef.current) return;
         const rect = containerRef.current.getBoundingClientRect();
-        const y = clientY - rect.top;
-        const percentage = (y / rect.height) * 100;
+        const x = clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
         setPosition(Math.min(100, Math.max(0, percentage)));
     }, []);
 
@@ -31,8 +31,8 @@ export function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAfterSlider
     const handleMouseMove = useCallback(
         (e: MouseEvent | TouchEvent) => {
             if (!isDragging.current) return;
-            const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
-            updatePosition(clientY);
+            const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+            updatePosition(clientX);
         },
         [updatePosition]
     );
@@ -55,40 +55,40 @@ export function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAfterSlider
     }, [handleMouseMove]);
 
     const handleClick = (e: React.MouseEvent) => {
-        updatePosition(e.clientY);
+        updatePosition(e.clientX);
     }
 
     return (
         <div className="w-full">
             <div
                 ref={containerRef}
-                className="relative w-full aspect-video overflow-hidden bg-[#f5f5f5] border border-[#e0e0e0] cursor-row-resize select-none touch-none"
+                className="relative w-full aspect-video overflow-hidden bg-[#f5f5f5] border border-[#e0e0e0] cursor-col-resize select-none touch-none"
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleMouseDown}
                 onClick={handleClick}
             >
-                {/* After Image (Background - Graded) */}
+                {/* After Image (Background - Graded - Right side) */}
                 <img
                     src={afterImage}
                     alt="Graded"
                     className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
                 />
 
-                {/* Before Image (Foreground - Log - Clipped) */}
+                {/* Before Image (Foreground - Log - Left side - Clipped) */}
                 <img
                     src={beforeImage}
                     alt="Log"
                     className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
-                    style={{ clipPath: `inset(0 0 ${100 - position}% 0)` }}
+                    style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
                 />
 
                 {/* Divider */}
                 <div
-                    className="absolute left-0 w-full h-1 bg-[#0000ff] z-10 pointer-events-none"
-                    style={{ top: `${position}%`, transform: 'translateY(-50%)' }}
+                    className="absolute top-0 h-full w-1 bg-[#0000ff] z-10 pointer-events-none"
+                    style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
                 >
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-[#0000ff] border-[3px] border-white rounded-full shadow-md flex items-center justify-center text-white text-sm font-bold">
-                        ↕
+                        ↔
                     </div>
                 </div>
             </div>

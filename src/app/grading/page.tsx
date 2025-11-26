@@ -15,14 +15,32 @@ export default function GradingPage() {
             <div className="flex flex-col gap-16">
                 <div className="w-full">
                     <BeforeAfterSlider
-                        beforeImage="/photos/Grading/example1-log.jpg"
-                        afterImage="/photos/Grading/example1-graded.jpg"
+                        beforeImage="/photos/Grading/before1.png"
+                        afterImage="/photos/Grading/after1.png"
                     />
                 </div>
                 <div className="w-full">
                     <BeforeAfterSlider
-                        beforeImage="/photos/Grading/example2-log.jpg"
-                        afterImage="/photos/Grading/example2-graded.jpg"
+                        beforeImage="/photos/Grading/before2.png"
+                        afterImage="/photos/Grading/after2.png"
+                    />
+                </div>
+                <div className="w-full">
+                    <BeforeAfterSlider
+                        beforeImage="/photos/Grading/before3.png"
+                        afterImage="/photos/Grading/after3.png"
+                    />
+                </div>
+                <div className="w-full">
+                    <BeforeAfterSlider
+                        beforeImage="/photos/Grading/before4.png"
+                        afterImage="/photos/Grading/after4.png"
+                    />
+                </div>
+                <div className="w-full">
+                    <BeforeAfterSlider
+                        beforeImage="/photos/Grading/before5.png"
+                        afterImage="/photos/Grading/after5.png"
                     />
                 </div>
             </div>
