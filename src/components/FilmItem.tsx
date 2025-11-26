@@ -3,14 +3,17 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
+import Image from "next/image";
+
 interface FilmItemProps {
     href?: string;
     imageSrc?: string;
     title: string;
     delay?: number;
+    priority?: boolean;
 }
 
-export function FilmItem({ href, imageSrc, title, delay = 0 }: FilmItemProps) {
+export function FilmItem({ href, imageSrc, title, delay = 0, priority = false }: FilmItemProps) {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -37,10 +40,12 @@ export function FilmItem({ href, imageSrc, title, delay = 0 }: FilmItemProps) {
         <>
             <div className="overflow-hidden aspect-video bg-[#f5f5f5] border border-[#e0e0e0] w-full min-h-[200px] md:min-h-[380px] group relative box-border">
                 {imageSrc ? (
-                    <img
+                    <Image
                         src={imageSrc}
                         alt={`${title} thumbnail`}
-                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                        fill
+                        priority={priority}
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center bg-[#f0f0f0] text-[#0000ff] font-oswald text-xl md:text-2xl font-light tracking-[0.2em] transition-transform duration-500 ease-out group-hover:scale-105">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 interface BeforeAfterSliderProps {
     beforeImage: string;
@@ -68,19 +69,31 @@ export function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAfterSlider
                 onClick={handleClick}
             >
                 {/* After Image (Background - Graded - Right side) */}
-                <img
-                    src={afterImage}
-                    alt="Graded"
-                    className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none scale-[1.02]"
-                />
+                <div className="absolute inset-0 w-full h-full">
+                    <Image
+                        src={afterImage}
+                        alt="Graded"
+                        fill
+                        priority
+                        className="object-cover select-none pointer-events-none scale-[1.02]"
+                    />
+                </div>
 
                 {/* Before Image (Foreground - Log - Left side - Clipped) */}
-                <img
-                    src={beforeImage}
-                    alt="Log"
-                    className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none scale-[1.02]"
+                <div
+                    className="absolute inset-0 pointer-events-none"
                     style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-                />
+                >
+                    <div className="relative w-full h-full">
+                        <Image
+                            src={beforeImage}
+                            alt="Log"
+                            fill
+                            priority
+                            className="object-cover scale-[1.02]"
+                        />
+                    </div>
+                </div>
 
                 {/* Divider */}
                 <div
