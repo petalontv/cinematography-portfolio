@@ -52,11 +52,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Akira Expanded';
+  src: url('/fonts/Akira Expanded Demo.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
   --background: 240 100% 50%;
   --foreground: 0 0% 100%;
-  --font-sans: 'Akira Expanded', 'Arial Black', 'Impact', sans-serif;
-  --font-mono: 'Akira Expanded', 'Arial Black', 'Impact', monospace;
+  --font-sans: 'Akira Expanded', sans-serif;
+  --font-mono: 'Akira Expanded', monospace;
   --font-hud: 'IBM Plex Mono', monospace;
   --font-rewind: 'VT323', monospace;
 }
