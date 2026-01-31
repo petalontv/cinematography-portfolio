@@ -70,13 +70,13 @@ export default function Home() {
         </div>
 
         {/* Broadcast OSD Bar */}
-        <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end text-lg font-['VT323'] tracking-wider text-white/70 uppercase z-[200]">
-          <div className="flex gap-6">
+        <div className="absolute bottom-8 left-8 right-8 flex flex-col md:flex-row justify-between items-center md:items-end text-lg font-['VT323'] tracking-wider text-white/70 uppercase z-[200] gap-4 md:gap-0">
+          <div className="flex gap-6 order-2 md:order-1">
             <span>REC ● 00:04:22</span>
             <span className="opacity-50">|</span>
             <span>BAT 98%</span>
           </div>
-          <div className="flex gap-8">
+          <div className="flex gap-8 order-1 md:order-2 text-sm md:text-lg">
             <a href="https://youtube.com/@petalontv" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:text-shadow-glow transition-all">YOUTUBE</a>
             <a href="https://instagram.com/petalontv" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:text-shadow-glow transition-all">INSTAGRAM</a>
             <a href="https://vimeo.com/petalontv" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:text-shadow-glow transition-all">VIMEO</a>

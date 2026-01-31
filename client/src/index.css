@@ -55,8 +55,8 @@
 :root {
   --background: 240 100% 50%;
   --foreground: 0 0% 100%;
-  --font-sans: 'Akira Expanded', sans-serif;
-  --font-mono: 'Akira Expanded', sans-serif;
+  --font-sans: 'Akira Expanded', 'Orbitron', sans-serif;
+  --font-mono: 'Akira Expanded', 'Orbitron', sans-serif;
   --font-hud: 'IBM Plex Mono', monospace;
   --font-rewind: 'VT323', monospace;
 }
@@ -166,7 +166,46 @@
   position: relative;
 }
 
-/* Phosphor Bloom Hover Effect */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ptv-grid {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .ptv-main-link {
+    grid-template-columns: 30px 1fr;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  .ptv-play-arrow {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ptv-button {
+    font-size: 2.5rem;
+    /* Smaller on mobile */
+  }
+
+  .ptv-sub-button {
+    font-size: 1.2rem;
+  }
+
+  .ptv-sub-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .ptv-title {
+    font-size: 15vw;
+    /* Scale title on mobile */
+  }
+}
+
 .ptv-static-box:hover .ptv-title {
   text-shadow:
     0 0 10px rgba(255, 255, 255, 0.8),
