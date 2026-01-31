@@ -55,8 +55,8 @@
 :root {
   --background: 240 100% 50%;
   --foreground: 0 0% 100%;
-  --font-sans: 'Nagel', 'Oswald', sans-serif;
-  --font-mono: 'Nagel', 'Oswald', monospace;
+  --font-sans: 'Akira Expanded', sans-serif;
+  --font-mono: 'Akira Expanded', sans-serif;
   --font-hud: 'IBM Plex Mono', monospace;
   --font-rewind: 'VT323', monospace;
 }
@@ -71,6 +71,8 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    /* Hide native scrollbars */
+    overflow: hidden;
     background: #0000ff;
   }
 }
