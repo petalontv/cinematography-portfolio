@@ -1,5 +1,5 @@
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
-import { Link } from "wouter";
+import BackButton from "@/components/BackButton";
 
 export default function GradingPage() {
     return (
@@ -10,11 +10,7 @@ export default function GradingPage() {
 
             <main className="w-full max-w-[1400px] mx-auto px-4 md:px-8 relative z-[160]">
                 {/* Back to Home Link - Standardized */}
-                <Link href="/">
-                    <button className="ptv-sub-button" style={{ position: 'absolute', top: '2rem', left: '0' }}>
-                        BACK
-                    </button>
-                </Link>
+                <BackButton />
 
                 <div className="text-center mb-12">
                     <h2 className="font-['VT323'] text-white text-6xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">

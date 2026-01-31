@@ -1,16 +1,12 @@
-import { Link } from "wouter";
+import BackButton from "@/components/BackButton";
 
 export default function Contact() {
   return (
     <div className="ptv-contact-page">
       <div className="ptv-scanlines" />
       <div className="ptv-vignette" />
-      
-      <Link href="/">
-        <button className="ptv-sub-button" style={{ position: 'absolute', top: '2rem', left: '2rem' }}>
-          BACK
-        </button>
-      </Link>
+
+      <BackButton />
 
       <div className="ptv-email-container">
         <div className="ptv-email-fit">

@@ -12,20 +12,24 @@ import CyberpunkPage from "./pages/CyberpunkPage";
 import FogPage from "./pages/FogPage";
 import SocialsDemo from "./pages/SocialsDemo";
 import NotFound from "@/pages/not-found";
+import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/grading" component={GradingPage} />
-      <Route path="/autumn" component={AutumnPage} />
-      <Route path="/cyberpunk" component={CyberpunkPage} />
-      <Route path="/fog" component={FogPage} />
-      <Route path="/film/:id" component={FilmDetail} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/socials-demo" component={SocialsDemo} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/grading" component={GradingPage} />
+        <Route path="/autumn" component={AutumnPage} />
+        <Route path="/cyberpunk" component={CyberpunkPage} />
+        <Route path="/fog" component={FogPage} />
+        <Route path="/film/:id" component={FilmDetail} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/socials-demo" component={SocialsDemo} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
