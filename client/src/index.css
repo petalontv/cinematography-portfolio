@@ -64,6 +64,15 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   body {
@@ -71,9 +80,14 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    /* Hide native scrollbars */
-    overflow: hidden;
+    /* Allow scrolling but hide scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     background: #0000ff;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
   }
 }
 
