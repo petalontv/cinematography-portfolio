@@ -1,11 +1,19 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "new-york",
+<<<<<<< HEAD
   "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "",
     "css": "src/app/globals.css",
+=======
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "client/src/index.css",
+>>>>>>> b35e806 (Extracted stack files)
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
@@ -17,6 +25,10 @@
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
+<<<<<<< HEAD
   },
   "registries": {}
+=======
+  }
+>>>>>>> b35e806 (Extracted stack files)
 }
