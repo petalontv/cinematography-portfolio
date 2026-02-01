@@ -54,6 +54,20 @@ export default function Home() {
       {/* Dynamic Filter Definition */}
       <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
         <defs>
+          {/* Digital Pixel Reveal Filter */}
+          <filter id="ptv-reveal" x="-50%" y="-50%" width="200%" height="200%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="1" result="noise" />
+            <motion.feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              xChannelSelector="R"
+              yChannelSelector="G"
+              initial={{ scale: 150 }}
+              animate={{ scale: 0 }}
+              transition={{ duration: 4, ease: "circOut" }}
+            />
+          </filter>
+
           <filter id="ptv-fisheye" x="-50%" y="-50%" width="200%" height="200%">
             <feImage preserveAspectRatio="none" result="lens" href={displacementMapUrl} />
             {/* 
@@ -89,8 +103,8 @@ export default function Home() {
             onMouseEnter={() => setIsLogoHovered(true)}
             onMouseLeave={() => setIsLogoHovered(false)}
             style={{
-              // We apply the filter explicitly here.
-              filter: 'url(#ptv-fisheye)',
+              // Apply reveal first (pixelates source), then fisheye (bulges result)
+              filter: 'url(#ptv-reveal) url(#ptv-fisheye)',
               willChange: 'filter, transform',
               transformStyle: 'preserve-3d',
               perspective: '1000px',
