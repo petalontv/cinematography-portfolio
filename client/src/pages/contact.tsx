@@ -32,14 +32,15 @@ export default function Contact() {
         >
 
           {/* Top Copies - Spawning outwards */}
-          {[...Array(20)].map((_, i) => (
+          {[...Array(10)].map((_, i) => (
             <motion.div
               key={`top-${i}`}
               className="ptv-email-fit absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+              style={{ willChange: "transform, opacity", transform: "translateZ(0)" }}
               initial={{ opacity: 0, y: 0 }}
               animate={{
-                opacity: isHovered ? Math.max(0, 0.8 - i * 0.04) : 0,
-                y: isHovered ? -(65 + i * 40) : 0, // 65px base gap (closer) + 40px cluster step
+                opacity: isHovered ? Math.max(0, 0.8 - i * 0.08) : 0, // Adjusted fade for fewer items
+                y: isHovered ? -(65 + i * 40) : 0,
               }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
@@ -59,14 +60,15 @@ export default function Contact() {
           </motion.div>
 
           {/* Bottom Copies - Spawning outwards */}
-          {[...Array(20)].map((_, i) => (
+          {[...Array(10)].map((_, i) => (
             <motion.div
               key={`bottom-${i}`}
               className="ptv-email-fit absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+              style={{ willChange: "transform, opacity", transform: "translateZ(0)" }}
               initial={{ opacity: 0, y: 0 }}
               animate={{
-                opacity: isHovered ? Math.max(0, 0.8 - i * 0.04) : 0,
-                y: isHovered ? (65 + i * 40) : 0, // 65px base gap + 40px cluster step
+                opacity: isHovered ? Math.max(0, 0.8 - i * 0.08) : 0,
+                y: isHovered ? (65 + i * 40) : 0,
               }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
