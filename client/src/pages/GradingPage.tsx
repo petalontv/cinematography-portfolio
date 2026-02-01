@@ -11,7 +11,7 @@ export default function GradingPage() {
             <main className="w-full max-w-[1400px] mx-auto px-4 md:px-8 relative z-[160]">
 
                 <div className="text-center mb-12">
-                    <h2 className="font-sans text-white text-6xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">
+                    <h2 className="font-sans text-white text-4xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">
                         GRADING
                     </h2>
                 </div>

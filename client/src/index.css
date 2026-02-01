@@ -306,6 +306,12 @@
   z-index: 500;
 }
 
+@media (max-width: 768px) {
+  .ptv-screen-container {
+    padding: 0.75rem;
+  }
+}
+
 .ptv-cursor-crosshair {
   cursor: crosshair !important;
 }

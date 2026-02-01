@@ -43,7 +43,7 @@ export function FilmPageLayout({ title, producer, videoId, photos }: FilmPageLay
                 {/* The "Screen" Container - Lifted above scanlines (z-150) */}
                 <div className="ptv-screen-container flex flex-col gap-16 relative z-[200]">
                     <div className="w-full">
-                        <div className="relative pb-[56.25%] h-0 overflow-hidden bg-black border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <div className="relative pb-[75%] md:pb-[56.25%] h-0 overflow-hidden bg-black border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
                             <iframe
                                 src={`https://player.vimeo.com/video/${videoId}`}
                                 className="absolute top-0 left-0 w-full h-full border-none"
@@ -55,7 +55,7 @@ export function FilmPageLayout({ title, producer, videoId, photos }: FilmPageLay
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {photos.map((photo, i) => (
-                            <div key={i} className="w-full aspect-video overflow-hidden bg-black border border-white/10 group shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <div key={i} className="w-full aspect-[4/3] md:aspect-video overflow-hidden bg-black border border-white/10 group shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                                 <img
                                     src={photo}
                                     alt={`${title} Scene ${i + 1}`}
