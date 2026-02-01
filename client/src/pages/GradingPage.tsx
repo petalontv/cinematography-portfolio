@@ -9,16 +9,11 @@ export default function GradingPage() {
             <div className="ptv-noise" />
 
             <main className="w-full max-w-[1400px] mx-auto px-4 md:px-8 relative z-[160]">
-                {/* Back to Home Link - Standardized */}
-                <BackButton />
 
                 <div className="text-center mb-12">
-                    <h2 className="font-['VT323'] text-white text-6xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">
+                    <h2 className="font-sans text-white text-6xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">
                         GRADING
                     </h2>
-                    <p className="font-['VT323'] text-xl md:text-2xl font-light tracking-widest text-white/80 uppercase">
-                        Before & After Comparison
-                    </p>
                 </div>
 
                 {/* The "Screen" Container - Lifted above scanlines (z-150) */}
@@ -53,6 +48,11 @@ export default function GradingPage() {
                             afterImage={`${import.meta.env.BASE_URL}photos/Grading/after5.png`}
                         />
                     </div>
+                </div>
+
+                {/* Back to Home Link - Standardized at Bottom */}
+                <div className="flex justify-center mt-20 pb-12 relative z-[200]">
+                    <BackButton />
                 </div>
             </main>
         </div>

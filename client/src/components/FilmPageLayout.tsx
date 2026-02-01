@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import BackButton from "@/components/BackButton";
 
+import { useLocation } from "wouter";
+
 interface FilmPageLayoutProps {
     title: string;
     producer: React.ReactNode;
@@ -9,6 +11,21 @@ interface FilmPageLayoutProps {
 }
 
 export function FilmPageLayout({ title, producer, videoId, photos }: FilmPageLayoutProps) {
+    const [location, setLocation] = useLocation();
+
+    const handleNext = () => {
+        const films = ['/autumn', '/cyberpunk', '/fog'];
+        // Normalize location to ensure matching (e.g. remove trailing slash if exists, though wouter usually handles this)
+        // Simple filter works for now as paths are simple.
+        const others = films.filter(f => f !== location);
+
+        if (others.length > 0) {
+            const random = others[Math.floor(Math.random() * others.length)];
+            setLocation(random);
+            window.scrollTo(0, 0); // Ensure scroll to top
+        }
+    };
+
     return (
         <div className="ptv-content-page">
             <div className="ptv-scanlines" />
@@ -16,11 +33,9 @@ export function FilmPageLayout({ title, producer, videoId, photos }: FilmPageLay
             <div className="ptv-noise" />
 
             <main className="w-full max-w-[1400px] mx-auto px-4 md:px-8 relative z-[160]">
-                {/* Back to Home Link - Standardized */}
-                <BackButton />
 
                 <div className="text-center mb-12">
-                    <h2 className="font-['VT323'] text-white text-6xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">
+                    <h2 className="font-sans text-white text-6xl md:text-8xl tracking-widest mb-2 uppercase text-shadow-glow">
                         {title}
                     </h2>
                 </div>
@@ -49,6 +64,14 @@ export function FilmPageLayout({ title, producer, videoId, photos }: FilmPageLay
                             </div>
                         ))}
                     </div>
+                </div>
+
+                {/* Navigation Footer - Back & Next */}
+                <div className="flex justify-center items-center gap-12 mt-20 pb-12 relative z-[200]">
+                    <BackButton />
+                    <button onClick={handleNext} className="ptv-sub-button z-[9999] hover:text-shadow-glow transition-all">
+                        NEXT
+                    </button>
                 </div>
             </main>
         </div>
